@@ -2,8 +2,7 @@ from aiogram import types
 from aiogram.dispatcher.filters.builtin import CommandStart
 
 from loader import dp
-
-from filters.is_admin import IsAdmin
+from keyboards.default.main_menu import generate_main_menu
 
 
 @dp.message_handler(CommandStart())
@@ -18,4 +17,5 @@ async def bot_start(message: types.Message):
             photo=photo,
             caption=text,
             parse_mode="HTML",
+            reply_markup=generate_main_menu(),
         )
