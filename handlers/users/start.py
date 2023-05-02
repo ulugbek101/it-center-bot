@@ -4,8 +4,10 @@ from aiogram.dispatcher.filters.builtin import CommandStart
 from loader import dp
 from keyboards.default.main_menu import generate_main_menu
 
+from filters.is_private import IsPrivate
 
-@dp.message_handler(CommandStart())
+
+@dp.message_handler(CommandStart(), IsPrivate())
 async def bot_start(message: types.Message):
     text = f" \
     Assalomu alaykum <b>{message.from_user.full_name}</b> 👋 \
