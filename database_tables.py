@@ -9,7 +9,7 @@ def create_users_table() -> None:
     sql = """
         CREATE TABLE IF NOT EXISTS Users(
             user_id INT PRIMARY KEY AUTO_INCREMENT,
-            chat_id INT NOT NULL UNIQUE,
+            chat_id BIGINT NOT NULL UNIQUE,
             username VARCHAR(255),
             fullname VARCHAR(255)
         );
@@ -17,4 +17,4 @@ def create_users_table() -> None:
     db.execute(sql, commit=True)
 
 
-create_users_table()
+# create_users_table()

@@ -58,3 +58,15 @@ class Database:
 
         return data
 
+    def register_user(self, chat_id: int, username: str, fullname: str) -> None:
+        """
+        Registers user in a database
+        :param chat_id:
+        :param username:
+        :param fullname:
+        :return: None
+        """
+        sql = """
+            INSERT INTO Users (chat_id, username, fullname) VALUES (%s, %s, %s);
+        """
+        self.execute(sql, (chat_id, username, fullname), commit=True)
