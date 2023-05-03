@@ -70,3 +70,16 @@ class Database:
             INSERT INTO Users (chat_id, username, fullname) VALUES (%s, %s, %s);
         """
         self.execute(sql, (chat_id, username, fullname), commit=True)
+
+    def add_course(self, course_name: str, course_description_path: str, course_image_path: str) -> None:
+        """
+        Add new course to a database
+        :param course_name:
+        :param course_description_path:
+        :param course_image_path:
+        :return: None
+        """
+        sql = """
+            INSERT INTO Courses (course_name, course_desc_path, course_image_path) VALUES (%s, %s, %s)
+        """
+        self.execute(sql, (course_name, course_description_path, course_image_path), commit=True)
