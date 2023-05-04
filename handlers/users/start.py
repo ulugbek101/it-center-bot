@@ -10,6 +10,11 @@ from loader import db
 
 @dp.message_handler(CommandStart(), IsPrivate())
 async def bot_start(message: types.Message):
+    """
+    Display main menu keyboard for users and send greeting text
+    :param message:
+    :return:
+    """
     text = f" \
     Assalomu alaykum <b>{message.from_user.full_name}</b> 👋 \
     \n\nIT Center Bag'dod rasmiy botiga xush kelibsiz ! \
