@@ -2,6 +2,10 @@ from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 
 
 def generate_main_menu():
+    """
+    User menu keyboard layout
+    :return: markup
+    """
     markup = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
     markup.row(
         KeyboardButton(text="📃 Kurslar haqida"),

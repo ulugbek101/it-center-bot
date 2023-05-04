@@ -15,7 +15,7 @@ async def request_course_name(message: Message, state: FSMContext):
     Start adding a course, request course name
     :param message:
     :param state:
-    :return: message
+    :return:
     """
     await message.answer(
         text="Kursga nom bering:  \
@@ -32,7 +32,7 @@ async def save_course_name_and_request_course_description(message: Message, stat
     Save course name from previous state and request course description
     :param message:
     :param state:
-    :return: message
+    :return:
     """
     await state.update_data(course_name=message.text)
     await message.answer(
@@ -48,7 +48,7 @@ async def save_course_description_and_request_course_image(message: Message, sta
     Save course description from previus state and request course image
     :param message:
     :param state:
-    :return: message
+    :return:
     """
     await state.update_data(course_description=message.text)
     await message.answer(
@@ -60,6 +60,13 @@ async def save_course_description_and_request_course_image(message: Message, sta
 
 @dp.message_handler(state=CourseAddForm.course_image, content_types="photo")
 async def save_course_image_and_finish_state(message: Message, state: FSMContext):
+    """
+    Save course information in database if its valid,
+    sends a warning message otherwise
+    :param message:
+    :param state:
+    :return:
+    """
     data = await state.get_data()
 
     special_symbols = ["/", "\\", " ", "-", ":", ";", "?", "!"]

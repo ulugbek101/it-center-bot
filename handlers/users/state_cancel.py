@@ -12,7 +12,7 @@ async def cancel_state(message: Message, state: FSMContext):
     Function to cancel any state, and say that state is cancelled
     :param message:
     :param state:
-    :return: message
+    :return:
     """
     if state is None:
         await message.answer(

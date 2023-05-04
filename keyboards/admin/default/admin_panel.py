@@ -4,7 +4,7 @@ from aiogram.types import (
 )
 
 
-def generate_admin_menu():
+def generate_admin_menu() -> ReplyKeyboardMarkup:
     """
     Admin menu keyboard layout
     :return: markup
