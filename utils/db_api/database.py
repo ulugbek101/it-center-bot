@@ -4,12 +4,13 @@ import pymysql
 class Database:
     def __init__(self, db_name: str, db_password: str, db_user: str, db_host: str, db_port: int) -> None:
         """
-        :returns
+        Initializing database credentials
         :param db_name:
         :param db_password:
         :param db_user:
         :param db_host:
         :param db_port:
+        :returns
         """
         self.db_name = db_name
         self.db_password = db_password
@@ -20,7 +21,8 @@ class Database:
     @property
     def db(self) -> pymysql.Connection:
         """
-        :return: database connection
+        Returns database connection
+        :return:
         """
         return pymysql.connect(
             database=self.db_name,
@@ -33,12 +35,13 @@ class Database:
     def execute(self, sql: str, params: tuple = None, commit: bool = False, fetchall: bool = False,
                 fetchone: bool = False) -> tuple | None:
         """
+        Returns Tuple if there is returning some data from a database or None if there is just committing something
         :param sql:
         :param params:
         :param commit:
         :param fetchall:
         :param fetchone:
-        :return: tuple if there is returning some data from a database or None if there is just committing something
+        :return:
         """
         if not params:
             params = ()
@@ -64,7 +67,7 @@ class Database:
         :param chat_id:
         :param username:
         :param fullname:
-        :return: None
+        :return:
         """
         sql = """
             INSERT INTO Users (chat_id, username, fullname) VALUES (%s, %s, %s);
@@ -77,9 +80,19 @@ class Database:
         :param course_name:
         :param course_description_path:
         :param course_image_path:
-        :return: None
+        :return:
         """
         sql = """
             INSERT INTO Courses (course_name, course_desc_path, course_image_path) VALUES (%s, %s, %s)
         """
         self.execute(sql, (course_name, course_description_path, course_image_path), commit=True)
+
+    def get_courses(self):
+        """
+        Get all courses list
+        :return:
+        """
+        sql = """
+            SELECT * FROM Courses
+        """
+        return self.execute(sql, fetchall=True)
