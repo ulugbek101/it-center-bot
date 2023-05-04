@@ -33,6 +33,5 @@ async def bot_start(message: types.Message):
             username=message.from_user.username,
             fullname=message.from_user.full_name,
         )
-    except Exception as exp:
-        print(exp.__class__.__name__, exp)
+    except:
         pass
