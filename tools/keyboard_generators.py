@@ -47,3 +47,35 @@ def generate_reply_keyboard(menu: dict, in_row: int = 2, markup: ReplyKeyboardMa
         start = end
         end += in_row
     return markup
+
+
+def generate_inline_keyboard(menu: tuple, prefix: str, in_row: int = 2, markup: InlineKeyboardMarkup = None):
+    """
+    Inline keyboard generator
+    :param menu:
+    :param prefix:
+    :param in_row:
+    :param markup:
+    :return:
+    """
+    if not markup:
+        markup = InlineKeyboardMarkup()
+
+    in_row = in_row
+    start = 0
+    end = in_row
+
+    rows = len(menu) // 2
+    if rows % 2 != 0:
+        rows += 1
+
+    for _ in range(rows):
+        row = []
+        for btn_id, btn_text, *args in menu[start:end]:
+            row.append(
+                InlineKeyboardButton(text=btn_text, callback_data=f"{prefix}:{btn_id}")
+            )
+        markup.row(*row)
+        start = end
+        end += in_row
+    return markup
