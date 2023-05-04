@@ -20,8 +20,8 @@ def generate_reply_keyboard(menu: dict, in_row: int = 2, markup: ReplyKeyboardMa
     start = 0
     end = in_row
 
-    rows = len(menu) // 2
-    if rows % 2 != 0:
+    rows = len(menu) // in_row
+    if rows % in_row != 0:
         rows += 1
 
     for _ in range(rows):
@@ -65,13 +65,16 @@ def generate_inline_keyboard(menu: tuple, prefix: str, in_row: int = 2, markup: 
     start = 0
     end = in_row
 
-    rows = len(menu) // 2
-    if rows % 2 != 0:
+    rows = len(menu) // in_row
+    if rows % in_row != 0:
         rows += 1
+    if len(menu) == 1:
+        rows = 1
 
     for _ in range(rows):
         row = []
         for btn_id, btn_text, *args in menu[start:end]:
+            btn_text = btn_text.capitalize().replace("_", " ")
             row.append(
                 InlineKeyboardButton(text=btn_text, callback_data=f"{prefix}:{btn_id}")
             )

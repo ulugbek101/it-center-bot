@@ -87,6 +87,17 @@ class Database:
         """
         self.execute(sql, (course_name, course_description_path, course_image_path), commit=True)
 
+    def remove_course(self, course_id: int):
+        """
+        Removes course by course id from database
+        :param course_id:
+        :return:
+        """
+        sql = """
+            DELETE FROM Courses WHERE course_id = %s
+        """
+        self.execute(sql, (course_id,), commit=True)
+
     def get_courses(self):
         """
         Get all courses list

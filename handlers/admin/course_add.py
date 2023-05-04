@@ -3,7 +3,7 @@ from aiogram.dispatcher.filters import Text
 from aiogram.types import Message
 
 from keyboards.default.state_cancel_btn import generate_state_cancel_btn
-from keyboards.default.main_menu import generate_main_menu
+from keyboards.admin.default.management import generate_courses_management_menu
 from filters.is_admin import IsAdmin
 from loader import dp, db
 from states.courses.course_add import CourseAddForm
@@ -101,12 +101,12 @@ async def save_course_image_and_finish_state(message: Message, state: FSMContext
         )
         await message.answer(
             text="✅ Kurs muvaffaqiyatli qo'shildi",
-            reply_markup=generate_main_menu(),
+            reply_markup=generate_courses_management_menu(),
         )
     except:
         await message.answer(
             text="🤔 Nimadir noto'g'ri ketdi",
-            reply_markup=generate_main_menu(),
+            reply_markup=generate_courses_management_menu(),
         )
 
     await state.finish()

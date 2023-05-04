@@ -29,9 +29,12 @@ async def display_course_management_menu(message: Message):
     """
     courses = db.get_courses()
 
-    text = f"Hozida {len(courses)} ta kurs ro'yxatga olingan:\n\n"
-    for count, course in enumerate(courses, start=1):
-        text += f"{count}. {course[1]}"
+    if len(courses) == 0:
+        text = "🤔 Kurslar ro'yxati bo'sh"
+    else:
+        text = f"Hozirda {len(courses)} ta kurs ro'yxatga olingan:\n"
+        for count, course in enumerate(courses, start=1):
+            text += f"\n{count}. {course[1].capitalize().replace('_', ' ')}"
 
     await message.answer(
         text=text,

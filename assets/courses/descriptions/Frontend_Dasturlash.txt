@@ -1,0 +1,4 @@
+Front-End dasturlovchi veb-saytning foydalanuvchiga ko’rinadigan qismini tayyorlash bilan shug’ullanadi. Masalan siz veb-saytlarda ko’radigan oddiygina tugma uchun ham Front-End dasturlovchi mehnat qilib kod yozadi. Ya’ni siz brauzer orqali ekranda ko’rib turadigan barcha narsani tayyorlash Front-End dasturchining vazifasi va mana shu tayyorlangan ishlarning jamlanmasi veb-saytning Front-End qismi deyiladi. Yanada soddaroq tushuntiradigan bo’lsam siz veb-sayt nomini brauzerga yozib, veb-saytga kirganingizda sizga ko’rinib turgan qismi Front-End qismi hisoblanadi.
+
+To’lov: 400 000 so’m
+Davomiyligi: 9 oy

@@ -1,3 +1,6 @@
-Bu 
-ko’p qatorli 
-ta’rif
+Backend (inglizcha back-end) - bu xizmatning dasturiy ta'minot va apparat qismidir. Bu veb-sayt mantig'i amalga oshiriladigan vositalar to'plami. Bu bizning ko'zimizdan yashiringan narsa, ya'ni kompyuter va brauzerdan tashqarida sodir bo'ladi.  (Back End) Orqa tomon ishlab chiquvchilari veb-saytlarning foydalanuvchilar bilan bevosita aloqasi bo'lmagan "qopqoq ostida" qismlarini yaratadilar.
+
+Backend kursi 4 oy davom etib, PHP va Laravel bo'yicha bilimlar beriladi. Undan so'ng 1 oylik amaliyot darslari bo'lib o'tadi. Shunday qilib, Full stack dasturchi bo'lishni istaganlar jami 9 oylik, ya'ni 4 oy frontend, 4 oy backend va 1 oy amaliyot darlslarini o'taydilar.
+
+To’lov: 500 000
+Davomiyligi: 7 oy
